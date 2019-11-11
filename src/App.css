@@ -20,3 +20,21 @@
 .App-link {
   color: #09d3ac;
 }
+
+.leform {
+  padding-bottom: 60px;
+}
+
+.postTitle{
+  color: #09d3ac;
+}
+
+.navig{
+  background-color: aqua;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.smallP{
+  width: 50%;
+}

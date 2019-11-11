@@ -34,7 +34,7 @@ class Leform extends Component {
 
     render() {
         return (
-            <div>
+            <div className="leform">
                 <h1>Form</h1>
                 <form onSubmit={this.hanldeSubmit}>
                     Title: <input onChange={this.handleInput} value={this.state.title} name="title" type="text" required></input>

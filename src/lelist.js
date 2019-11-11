@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import Leform from "./leform";
 
+
 class Lelist extends Component {
     constructor() {
         super();
@@ -39,9 +40,9 @@ class Lelist extends Component {
     }
 
     render() {
-        var n_items = this.state.products.length;
-        const products = this.state.products.map((ele, i) => (<li>{ele.title}: {ele.price} <button onClick={() => this.removeEle(i)}>X</button></li>))
-        const plusProducts = this.state.products.map((ele, i) => (<button onClick={() => this.plusEle(i)}>{ele.title} +1</button>))
+        const n_items = this.state.products.length;
+        const products = this.state.products.map((ele, i) => (<li key={i}>{ele.title}: {ele.price} <button onClick={() => this.removeEle(i)}>X</button></li>))
+        const plusProducts = this.state.products.map((ele, i) => (<button key={i} onClick={() => this.plusEle(i)}>{ele.title} +1</button>))
         return (
             <div>
                 <h2>Products: {n_items}</h2>
