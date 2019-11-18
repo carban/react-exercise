@@ -41,11 +41,11 @@
 
 .leaflet-container {
   height: 400px;
-  width: 800px;
+  width: 1300px;
 }
 
 .amapa{
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 25px;
+  margin-bottom: 50px;
   background-color: red;
 }
