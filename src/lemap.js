@@ -40,18 +40,27 @@ class Mapi extends Component {
     return (
       <Map className="amapa" center={this.state.position} zoom={13} onClick={this.action}>
         <LayersControl position="topright">
-          <LayersControl.BaseLayer name="OpenStreetMap.BlackAndWhite">
+          <LayersControl.BaseLayer name="BlackAndWhite">
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="OpenStreetMap.Mapnik">
+          <LayersControl.BaseLayer name="Mapnik">
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Transport">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://tile.memomaps.de/tilegen/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+          {/* End Layers */}
+
+
           <LayersControl.Overlay name="Marker with popup">
             <Marker position={[3.4516, -76.5320]}>
               <Popup>
