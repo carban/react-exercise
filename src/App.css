@@ -38,3 +38,14 @@
 .smallP{
   width: 50%;
 }
+
+.leaflet-container {
+  height: 400px;
+  width: 800px;
+}
+
+.amapa{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background-color: red;
+}
