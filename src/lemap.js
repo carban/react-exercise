@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import { Map, Marker, Popup, TileLayer, LayersControl, FeatureGroup, Circle } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer, LayersControl, FeatureGroup, Circle, LayerGroup } from 'react-leaflet';
 import L from 'leaflet';
 
 class Mapi extends Component {
@@ -61,12 +61,15 @@ class Mapi extends Component {
           {/* End Layers */}
 
 
-          <LayersControl.Overlay name="Marker with popup">
-            <Marker position={[3.4516, -76.5320]}>
+          <LayersControl.Overlay name="Marker with popup" checked="true">
+            {/* <Marker position={[3.4516, -76.5320]}>
               <Popup>
                 <span>A pretty CSS3 popup. <br /> Easily customizable.</span>
               </Popup>
-            </Marker>
+            </Marker> */}
+            <LayerGroup>
+            {allMarkers}
+            </LayerGroup>
           </LayersControl.Overlay>
           <LayersControl.Overlay name="Feature group">
             <FeatureGroup color="purple">
@@ -84,7 +87,7 @@ class Mapi extends Component {
         <Marker position={this.state.movingMarker} icon={myicon}>
           <Popup><button onClick={this.newPoint}>New Point</button></Popup>
         </Marker>
-        {allMarkers}
+        
       </Map>
     )
   }
