@@ -41,6 +41,7 @@ function App() {
             {/* <Route path="/posts" render={() => <Posts />}>  */}
             <Route path="/posts" component={Posts}></Route>
             <Route exact path="/mapi" component={Mapi}></Route>
+            <Route exact path="/app2" component={this}></Route>
           </Router>
         </center>
       </header>
