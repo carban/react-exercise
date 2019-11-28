@@ -9,7 +9,8 @@ class Mapi extends Component {
     this.state = {
       position: [3.4516, -76.5320],
       movingMarker: [3.4616, -76.5000],
-      pos: []
+      pos: [],
+      block: true
     };
   }
 
@@ -18,7 +19,13 @@ class Mapi extends Component {
   }
 
   newPoint = () => {
+    // console.log(LayersControl.Overlay.allthemarkers);
     this.setState({ pos: [...this.state.pos, this.state.movingMarker] });
+  }
+
+  blockMarkers = e => {
+    this.setState({ block: !this.state.block });
+    console.log(this.state.block);
   }
 
   render() {
@@ -37,8 +44,10 @@ class Mapi extends Component {
       </Marker>)
     );
 
+    const newMaker = this.state.block ? <button onClick={this.newPoint}>New Point</button> : <p>Check layer</p>;
+
     return (
-      <Map className="amapa" center={this.state.position} zoom={13} onClick={this.action}>
+      <Map className="amapa" center={this.state.position} zoom={13} onClick={this.action} onoverlayadd={this.blockMarkers} onoverlayremove={this.blockMarkers}>
         <LayersControl position="topright">
           <LayersControl.BaseLayer name="BlackAndWhite">
             <TileLayer
@@ -61,14 +70,14 @@ class Mapi extends Component {
           {/* End Layers */}
 
 
-          <LayersControl.Overlay name="Marker with popup" checked="true">
+          <LayersControl.Overlay name="All markers" checked="true" onClick={this.blockMarkers}>
             {/* <Marker position={[3.4516, -76.5320]}>
               <Popup>
                 <span>A pretty CSS3 popup. <br /> Easily customizable.</span>
               </Popup>
             </Marker> */}
             <LayerGroup>
-            {allMarkers}
+              {allMarkers}
             </LayerGroup>
           </LayersControl.Overlay>
           <LayersControl.Overlay name="Feature group">
@@ -85,9 +94,9 @@ class Mapi extends Component {
           attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
         />
         <Marker position={this.state.movingMarker} icon={myicon}>
-          <Popup><button onClick={this.newPoint}>New Point</button></Popup>
+          <Popup>{newMaker}</Popup>
         </Marker>
-        
+
       </Map>
     )
   }
