@@ -24,8 +24,7 @@ class Mapi extends Component {
   }
 
   blockMarkers = e => {
-    this.setState({ block: !this.state.block });
-    console.log(this.state.block);
+    if (e.name === "All markers"){ this.setState({ block: !this.state.block }); }
   }
 
   render() {
@@ -85,7 +84,7 @@ class Mapi extends Component {
               <Popup>
                 <span>Popup in FeatureGroup</span>
               </Popup>
-              <Circle center={[3.4316, -76.5520]} radius={200} />
+              <Circle center={[3.4316, -76.5520]} radius={2000} />
             </FeatureGroup>
           </LayersControl.Overlay>
         </LayersControl>
