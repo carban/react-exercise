@@ -30,6 +30,8 @@ function App() {
               <Link to="/posts">Posts</Link>
               <br></br>
               <Link to="/mapi">Mapi</Link>
+              <br></br>
+              <Link to="/">Submit</Link>
             </div>
 
             {/* Exact es para que no muestre los dos componentes al tiempo */}
